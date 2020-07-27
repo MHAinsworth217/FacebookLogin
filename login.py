@@ -13,20 +13,14 @@ driver = webdriver.Chrome()
 # These will need to be changed if more users are added/removed
 options = [1, 2, 3, 4, 5]
 
-# Add the users and passwords to two separate lists
+# Add the users and passwords to a list of dictionaries
 users = [
-         "ehmeffdoom@gmail.com",
-         "viccaughn345@gmail.com",
-         "kddumile@gmail.com",
-         "metalfingers97@gmail.com",
-         "dangerdoomio@gmail.com",
+    {"email": "ehmeffdoom@gmail.com", "password": "wordpass23"},
+    {"email": "viccaughn345@gmail.com", "password": "doomguy23"},
+    {"email": "kddumile@gmail.com", "password": "doritos54"},
+    {"email": "metalfingers97@gmail.com", "password": "fritos89"},
+    {"email": "dangerdoomio@gmail.com", "password": "cheetos67"},
          ]
-passwords = ["wordpass23",
-             "doomguy23",
-             "doritos54",
-             "fritos89",
-             "cheetos67",
-             ]
 
 print("Welcome!")
 time.sleep(2)
@@ -48,9 +42,9 @@ Please select a user from the list:
     if selection in options:
         # Set index to the selection - 1. This is because the index will start at 0 instead of 1
         index = int(selection) - 1
-        # Set the username and password values to the place in the two lists, corresponding to the index number
-        username = users[index]
-        password = passwords[index]
+        # Set the username and password values to the place in the list, corresponding to the index number
+        username = users[index]["email"]
+        password = users[index]["password"]
         # Go to facebook
         driver.get("https://facebook.com")
         time.sleep(1)
